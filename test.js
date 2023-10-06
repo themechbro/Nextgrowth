@@ -1,34 +1,30 @@
-if(process.env.NODE_ENV !== 'production'){
-    require('dotenv').config();
-}
-
 const express= require('express');
 const bodyParser= require('body-parser');
 const request= require("request");
 const https= require("https");
 const axios = require('axios');
 const { error } = require('console');
-const key2= process.env.KEY2
+const key=process.env.KEY;
 const app= express();
 const config={
 headers:{
-Code:key2
+Code:'R6JDLZNTHL4RGL0QEZKFPUYI9'
 }
 }
-
 const url='https://forms.maakeetoo.com/formapi/945';
-
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
 
-
 app.get("/", function(req, res){
-  res.sendFile(__dirname +"/index.html")
+  res.sendFile(__dirname +"/test.html")
  axios.get(url, config).then(
 console.log('successful')).catch(err=>console.log(err));
 });
 
+//app.post('/',(req,res)=>{
+//axios.get(url, config).then(
+//console.log('successful')).catch(err=>console.log(err));
 axios.post(url, config, (req,res)=>{
 const data={
 firstname:req.body.firstname,
@@ -44,13 +40,3 @@ message: req.body.message,
 app.listen(process.env.PORT || 3000, function(){
     console.log("Server is running!")
   });
-
-
-
-
-
-
-
-
-
-

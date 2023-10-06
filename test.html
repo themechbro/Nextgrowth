@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Card Slider</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <form action="https://forms.maakeetoo.com/formapi/945" method="post">
+<label for="name">FirstName</label>
+<input type="text" placeholder="name" name="firstname">
+<label for="email">Email</label>
+<input type="email" placeholder="email" name="Email">
+<label for="message">Message</label>
+<input type="text" placeholder="message" name="message">
+<button type="submit">Submit details</button>
+</form>
+    
+    
+
+    <script>
+        const userSlider = document.getElementById("userSlider");
+        const userCountDisplay = document.getElementById("userCount");
+        const cards = document.querySelectorAll(".card");
+
+        userSlider.addEventListener("input", () => {
+            const userCount = parseInt(userSlider.value);
+            userCountDisplay.textContent = userCount;
+
+            cards.forEach((card, index) => {
+                if (userCount >= index * 10 && userCount <= (index + 1) * 10) {
+                    card.classList.add("highlighted-card");
+                    card.classList.remove("blurred-card");
+                } else {
+                    card.classList.remove("highlighted-card");
+                    card.classList.add("blurred-card");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

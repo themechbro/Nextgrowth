@@ -53,3 +53,10 @@ justify-content: space-between;
             filter: blur(5px);
           
         }
+
+@media(max-width:768px){
+.card-deck{
+display: flex;
+flex-direction: column;
+}
+}
