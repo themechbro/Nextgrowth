@@ -41,17 +41,10 @@ justify-content: space-between;
         }
 
         .card {
-            transition: filter 0.3s ease-in-out;
+          transition: border-color 0.3s ease-in-out;
         }
-
-        .highlighted-card {
-            filter: none;
- transform: scale(1);
-        }
-
-        .blurred-card {
-            filter: blur(5px);
-          
+.highlighted-card {
+            border-color: blue; /* You can change the border color as needed */
         }
 
 @media(max-width:768px){
